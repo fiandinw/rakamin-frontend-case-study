@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import HelloWorld from "./Components/HelloWorld";
+import CounterExample from "./Components/CounterExample";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Products from "./Views/Products";
+import Home from "./Views/Home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="relative pb-10 min-h-screen">
+        <Header />
+        {/* React Component */}
+        {/* <HelloWorld name="alifiandi" /> */}
+
+        {/* State Hooks */}
+        {/* <CounterExample /> */}
+
+        <div className="p-3">
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/products/:id" element={<Products />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <h2>About</h2>
     </div>
   );
 }
